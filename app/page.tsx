@@ -6,7 +6,7 @@ import '@mantine/core/styles.css';
 import {Menu} from '../app/functions/menuStack'
 import '@mantine/notifications/styles.css';
 import './styles.css';
-import { calculate } from './functions/calculate';
+import { Calculate } from './functions/calculate';
 import { IconCalculator } from '@tabler/icons-react'; 
 
 
