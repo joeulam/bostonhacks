@@ -38,7 +38,9 @@ def get_items(location, time):
                 
                 food_info.append(food_dict)
 
-        return food_info
+        # Save to JSON file
+        with open('food_items.json', 'w') as json_file:
+            json.dump(food_info, json_file, indent=4)
             
     else:
         print("No food items found on " + today + "'s" + time + "schedule at " + location + ".")
