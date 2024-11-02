@@ -6,7 +6,7 @@ import { listOfItem } from '../functions/menuStack';
 import '../styles.css'; // Import your CSS file
 
 export function Calculate() {
-    const items = listOfItem();
+    const [items, setItems] = useState(listOfItem()); // Store items in state
     const [selectedItem, setSelectedItem] = useState(null); 
     const [modalOpened, setModalOpened] = useState(false); 
 
@@ -16,16 +16,22 @@ export function Calculate() {
                 <Card className="item-card" onClick={() => handleCardClick(item)}>
                     <Text className="item-title">{item}</Text>
                     <Text className="item-description">Description not available.</Text>
-                    <Button className="item-button" fullWidth>Remove Item</Button>
+                    <Button className="item-button" fullWidth onClick={(e) => { e.stopPropagation(); removeFromList(item); }}>
+                        Remove Item
+                    </Button>
                 </Card>
             </Grid.Col>
         ));
     }
 
-    const handleCardClick = (item) => {
-        setSelectedItem(item); // Set the selected item
+    function handleCardClick(item) {
+        setSelectedItem(item); // Set the selected item for modal
         setModalOpened(true); // Open the modal
-    };
+    }
+
+    function removeFromList(itemName) {
+        setItems(prevItems => prevItems.filter(item => item !== itemName)); // Remove item from the list
+    }
 
     return (
         <Stack
@@ -44,7 +50,7 @@ export function Calculate() {
             {/* Custom modal as a div */}
             {modalOpened && (
                 <div className="custom-modal">
-                  <Card className="item-card large-card" style={{ maxHeight: '35vh', overflow: 'auto' }}>
+                    <Card className="item-card large-card" style={{ maxHeight: '35vh', overflow: 'auto' }}>
                         <Text className="large-item-title">{selectedItem}</Text>
                         
                         {/* Table for detailed data */}
@@ -93,7 +99,6 @@ export function Calculate() {
                                     <td>Protein</td>
                                     <td>Ex9</td>
                                 </tr>
-                                {/* Add more rows as needed */}
                             </tbody>
                         </Table>
                         <div className="button-container">
@@ -105,5 +110,3 @@ export function Calculate() {
         </Stack>
     );
 }
-
-
