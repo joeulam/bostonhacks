@@ -1,14 +1,18 @@
-import { Stack, Button } from '@mantine/core';
-import { Grid } from '@mantine/core';
+import { Stack, Button, Grid, Box } from '@mantine/core';
 import '@mantine/notifications/styles.css';
-import { Notifications } from '@mantine/notifications';
-import { notifications } from '@mantine/notifications';
+import { Notifications, notifications } from '@mantine/notifications';
+import '../styles.css'; // Import your styles
 var pickedItems: String[] = [] // Items will be added
 
 export function totalval(){
     return pickedItems
 }
 export function menu() {
+  const items = [
+    { id: 1, label: 'Temp food 1' },
+    { id: 2, label: 'Temp food 2' },
+    { id: 3, label: 'Temp food 3' },
+  ];
     function addToCart(itemName: String){
         pickedItems.push(itemName)
         notifications.show({
@@ -18,42 +22,23 @@ export function menu() {
     }
 
     
-
     
   return (
-    
-    <Stack
-      h={300}
-      bg="var(--mantine-color-body)"
-      align="stretch"
-      justify="center"
-      gap="md"
-    >
+
+    <Stack align="stretch" justify="center" gap="md">
     <Notifications />
-        <div>
+      <div className="grid-container">
             <Grid>
-                <Grid.Col span={6}>Temp food blah blah blah</Grid.Col>
-                <Grid.Col span={2}>            
-                    <Button variant="default" onClick={() =>addToCart("Cheese")}>
-                        Add
-                    </Button>
-                </Grid.Col>
-            </Grid>
-        </div>
-        <div>
-            <Grid>
-                <Grid.Col span={6}>Temp food blah blah blah</Grid.Col>
-                <Grid.Col span={2}>            
-                    <Button variant="default" onClick={() =>addToCart("Pizza")}>Add</Button>
-                </Grid.Col>
-            </Grid>
-        </div>
-        <div>
-            <Grid>
-                <Grid.Col span={6}>Temp food blah blah blah</Grid.Col>
-                <Grid.Col span={2}>            
-                    <Button variant="default" onClick={() =>addToCart("Drugs")}>Add</Button>
-                </Grid.Col>
+               {items.map((item) => (
+            <Grid.Col span={12} key={item.id}> {/* Use span={12} for full width */}
+              <Box className="food-item">
+                <span>{item.label}</span>
+                <Button variant="default" onClick={addToCart}>
+                  Add
+                </Button>
+              </Box>
+            </Grid.Col>
+          ))}
             </Grid>
         </div>
     </Stack>

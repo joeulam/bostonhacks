@@ -5,6 +5,7 @@ import { Tabs } from '@mantine/core';
 import '@mantine/core/styles.css';
 import {menu} from '../app/functions/menuStack'
 import '@mantine/notifications/styles.css';
+import './styles.css';
 import { calculate } from './functions/calculate';
 
 export default function Home() {
@@ -13,6 +14,8 @@ export default function Home() {
       <div>
         <h1>BU Fit tracker</h1>
       </div>
+      <Tabs
+      ></Tabs>
       <Tabs defaultValue="West_Dining_hall">
         <Tabs.List>
           <Tabs.Tab value="West_Dining_hall" leftSection={<IconChefHat/>}>
