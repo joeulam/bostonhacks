@@ -3,11 +3,12 @@ import {MantineProvider } from '@mantine/core';
 import { IconChefHat } from '@tabler/icons-react'
 import { Tabs } from '@mantine/core';
 import '@mantine/core/styles.css';
-import {menu} from '../app/functions/menuStack'
+import {Menu} from '../app/functions/menuStack'
 import '@mantine/notifications/styles.css';
 import './styles.css';
 import { calculate } from './functions/calculate';
 import { IconCalculator } from '@tabler/icons-react'; 
+
 
 export default function Home() {
   return (
@@ -34,7 +35,7 @@ export default function Home() {
         </Tabs.List>
 
         <Tabs.Panel value="West_Dining_hall">
-          {menu()}
+          {Menu()}
         </Tabs.Panel>
         <Tabs.Panel value="Warren_Dining_hall">
           Menu
@@ -46,7 +47,7 @@ export default function Home() {
           Menu
         </Tabs.Panel>
         <Tabs.Panel value="Calculate">
-          {calculate()}
+          {Calculate()}
         </Tabs.Panel>
       </Tabs>
     </MantineProvider>
