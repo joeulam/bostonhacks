@@ -4,6 +4,7 @@ import { IconChefHat } from '@tabler/icons-react'
 import { Tabs } from '@mantine/core';
 import '@mantine/core/styles.css';
 import {menu} from '../app/functions/menuStack'
+import '@mantine/notifications/styles.css';
 
 export default function Home() {
   return (
