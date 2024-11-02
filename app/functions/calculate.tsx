@@ -1,8 +1,19 @@
+'use client'
 import { Stack, Button } from '@mantine/core';
-import { totalval } from '../functions/menuStack'
 import { Grid } from '@mantine/core';
+import React, { useState } from "react";
+import { listOfItem } from '../functions/menuStack';
 
-export function calculate() {
+export function Calculate() {
+    const items = listOfItem()
+    
+    function dynamicList(){
+        return(items.map((number) =>
+            <Grid.Col span={6}>{number}</Grid.Col>
+          )
+        )
+    }
+    
   return (
     <Stack
       h={300}
@@ -12,9 +23,8 @@ export function calculate() {
       gap="md"
     >
         <Grid>
-            <Grid.Col span={6}>{totalval()}</Grid.Col>
+            {dynamicList()}
         </Grid>
-        
       
     </Stack>
   );
