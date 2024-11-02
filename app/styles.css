@@ -1,41 +1,29 @@
-/* styles.css */
 body{
     overflow-x: hidden;
 }
 
-.tabsContainer {
-    background-color: #1a1a1a; /* Dark background for the tabs */
-    border-radius: 8px;       /* Rounded corners */
-    padding: 1rem;            /* Padding inside the tabs */
+.mantine-Tabs-tab {
+    padding: 20px 20px; 
+    margin: 0 5px; 
+    transition: background-color 0.5s; 
 }
 
-.tabsList {
-    margin-bottom: 1rem;      /* Space between the tab list and the content */
-}
-
-.tab {
-    font-weight: bold;        /* Bold text for tab labels */
-    color: #ffffff;           /* White text color */
-}
-
-.tabPanel {
-    padding: 1rem;           /* Padding inside the tab panels */
-    background-color: #ffffff; /* White background for tab content */
-    border-radius: 4px;      /* Rounded corners for the content */
+.mantine-Tabs-tab:hover {
+    background-color: #555; 
+    color: #ffffff;
 }
 
 .food-item {
-    margin-top: 10px;
+    margin: 10px auto 1px; 
     padding: 1rem;
-    border-radius: 12px; /* Rounded corners */
+    border-radius: 12px;
     border: 1px solid #ccc;
     background-color: #f9f9f9;
     display: flex;
     align-items: center;
     justify-content: space-between;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin-bottom: 0.1rem; /* Space between items */
     color: black;
-    width: 100%; /* Make the item take full width */
+    width: calc(100% - 40px); 
+    max-width: 99vw;
 }
-
