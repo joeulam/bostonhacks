@@ -5,13 +5,15 @@ import { Tabs } from '@mantine/core';
 import '@mantine/core/styles.css';
 import {menu} from '../app/functions/menuStack'
 import '@mantine/notifications/styles.css';
-
+import './styles.css';
 export default function Home() {
   return (
     <MantineProvider defaultColorScheme="dark">
       <div>
         <h1>BU Fit tracker</h1>
       </div>
+      <Tabs
+      ></Tabs>
       <Tabs defaultValue="West_Dining_hall">
         <Tabs.List>
           <Tabs.Tab value="West_Dining_hall" leftSection={<IconChefHat/>}>
