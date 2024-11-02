@@ -17,14 +17,13 @@ async function run() {
     try {
         // Connect the client to the server (optional starting in v4.7)
         await client.connect();
-
         // Send a ping to confirm a successful connection
         await client.db("admin").command({ ping: 1 });
         console.log("Pinged your deployment. You successfully connected to MongoDB!");
 
         // Retrieve all documents from the dinner collection
         const results = await client.db('marci').collection('dinner').find().toArray();
-        fs.writeFileSync('food_items.json', JSON.stringify(results, null, 2), 'utf-8');
+        fs.writeFileSync('food_items_marci.json', JSON.stringify(results, null, 2), 'utf-8');
         // Log the results
         console.log("All Documents:", results);
     } finally {
