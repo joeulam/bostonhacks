@@ -1,13 +1,20 @@
 import Image from "next/image";
 import { createTheme, MantineProvider } from '@mantine/core';
+import { NavLink } from '@mantine/core';
+import '@mantine/core/styles.css';
 
-const theme = createTheme({
-  /** Put your mantine theme override here */
-});
+
 export default function Home() {
   return (
-    <MantineProvider theme={theme}>
-    {/* Your app here */}
-  </MantineProvider>
+    <MantineProvider defaultColorScheme="dark">
+      <div>
+        <h1>BU Fit tracker</h1>
+        
+      </div>
+      <NavLink
+        href="#required-for-focus"
+        label="With icon"
+      />
+    </MantineProvider>
   );
 }
