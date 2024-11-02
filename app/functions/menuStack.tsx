@@ -3,17 +3,23 @@ import { Grid } from '@mantine/core';
 import '@mantine/notifications/styles.css';
 import { Notifications } from '@mantine/notifications';
 import { notifications } from '@mantine/notifications';
+var pickedItems: String[] = [] // Items will be added
 
+export function totalval(){
+    return pickedItems
+}
 export function menu() {
-
-    function addToCart(){
+    function addToCart(itemName: String){
+        pickedItems.push(itemName)
         notifications.show({
             title: 'Added to cart',
             message: '',
             })
     }
 
+    
 
+    
   return (
     
     <Stack
@@ -28,7 +34,7 @@ export function menu() {
             <Grid>
                 <Grid.Col span={6}>Temp food blah blah blah</Grid.Col>
                 <Grid.Col span={2}>            
-                    <Button variant="default" onClick={() =>addToCart()}>
+                    <Button variant="default" onClick={() =>addToCart("Cheese")}>
                         Add
                     </Button>
                 </Grid.Col>
@@ -38,7 +44,7 @@ export function menu() {
             <Grid>
                 <Grid.Col span={6}>Temp food blah blah blah</Grid.Col>
                 <Grid.Col span={2}>            
-                    <Button variant="default" onClick={() =>addToCart()}>Add</Button>
+                    <Button variant="default" onClick={() =>addToCart("Pizza")}>Add</Button>
                 </Grid.Col>
             </Grid>
         </div>
@@ -46,7 +52,7 @@ export function menu() {
             <Grid>
                 <Grid.Col span={6}>Temp food blah blah blah</Grid.Col>
                 <Grid.Col span={2}>            
-                    <Button variant="default" onClick={() =>addToCart()}>Add</Button>
+                    <Button variant="default" onClick={() =>addToCart("Drugs")}>Add</Button>
                 </Grid.Col>
             </Grid>
         </div>

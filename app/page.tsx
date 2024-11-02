@@ -5,6 +5,7 @@ import { Tabs } from '@mantine/core';
 import '@mantine/core/styles.css';
 import {menu} from '../app/functions/menuStack'
 import '@mantine/notifications/styles.css';
+import { calculate } from './functions/calculate';
 
 export default function Home() {
   return (
@@ -26,6 +27,9 @@ export default function Home() {
           <Tabs.Tab value="Fenway_Dining_hall" leftSection={<IconChefHat/>}>
             Fenway Dining hall
           </Tabs.Tab>
+          <Tabs.Tab value="Calculate" leftSection={<IconChefHat/>}>
+            Calculate
+          </Tabs.Tab>
         </Tabs.List>
 
         <Tabs.Panel value="West_Dining_hall">
@@ -39,6 +43,9 @@ export default function Home() {
         </Tabs.Panel>
         <Tabs.Panel value="Fenway_Dining_hall">
           Menu
+        </Tabs.Panel>
+        <Tabs.Panel value="Calculate">
+          {calculate()}
         </Tabs.Panel>
       </Tabs>
     </MantineProvider>
