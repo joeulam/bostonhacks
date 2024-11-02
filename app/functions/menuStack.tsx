@@ -1,9 +1,8 @@
 import { Stack, Button, Grid, Box } from '@mantine/core';
 import '@mantine/notifications/styles.css';
 import { Notifications, notifications } from '@mantine/notifications';
-import '../styles.css'; // Import your styles
-var pickedItems: String[] = [] // Items will be added
-
+import '../styles.css'; 
+var pickedItems: String[] = [] 
 export function totalval(){
     return pickedItems
 }
@@ -21,8 +20,6 @@ export function menu() {
             })
     }
 
-    
-    
   return (
 
     <Stack align="stretch" justify="center" gap="md">
