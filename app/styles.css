@@ -22,7 +22,6 @@ body{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     color: black;
     width: calc(100% - 40px); 
     max-width: 99vw;
@@ -80,4 +79,79 @@ body{
     padding: 10px;
     display: flex;
     flex-direction: column;
+}
+
+.custom-modal {
+    position: fixed; 
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); 
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; 
+    overflow: hidden; 
+}
+
+.large-card {
+    max-height: 60%;
+    width: 20vw; 
+    transform: scale(2.6); 
+    transition: transform 0.2s; 
+    font-size: 0.6rem; 
+    border-radius: 4px; 
+}
+
+.large-card:hover {
+    transform: scale(2.8);
+}
+
+table {
+    max-width: 90%; 
+    border-collapse: collapse; 
+    margin: 0 auto 10px; 
+    display: auto; 
+}
+
+th, td {
+    border: 1px solid #ccc; 
+    padding: auto; 
+    text-align: left; 
+    font-size: 0.5rem; 
+}
+
+th {
+    background-color: #f0f0f0; 
+    font-size: 0.55rem; 
+}
+
+.close-button {
+    padding: 4px 8px; 
+    font-size: 0.6rem; 
+    border-radius: 4px; 
+    background-color: #007bff; 
+    color: white; 
+    transition: background-color 0.2s; 
+    align-items: center;
+    max-width: 40%;
+    max-height: 20px;
+}
+
+.close-button:hover {
+    background-color: #0056b3; 
+}
+
+.button-container {
+    display: flex;
+    justify-content: center; 
+    margin-top: 10px;
+}
+
+.large-item-title {
+    font-weight: 600;
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+    text-align: center; 
 }
