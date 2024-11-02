@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@mantine/notifications": "^7.13.4",
     "@tabler/icons": "^3.21.0",
     "@tabler/icons-react": "^3.21.0",
     "mongodb": "^6.10.0",
