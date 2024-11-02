@@ -23,7 +23,6 @@ interface foodItems {
 }
 
 export function listOfItem() {
-  console.log(item);
   return item;
 }
 
@@ -47,7 +46,6 @@ export function Menu(diningHall : string) {
         <Notifications />
         <div className="grid-container">
           <Grid>
-            {console.log(items as foodItems)}
             {items.map((item: foodItems) => (
               <Grid.Col span={12} key={item.id}>
                 {" "}
