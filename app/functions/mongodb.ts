@@ -2,28 +2,35 @@ const { MongoClient, ServerApiVersion } = require("mongodb");
 
 // Replace the placeholder with your Atlas connection string
 const uri = "mongodb+srv://joeulam:0707@cluster0.sgvrk.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+const fs = require("fs");
 
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
-const client = new MongoClient(uri,  {
-        serverApi: {
-            version: ServerApiVersion.v1,
-            strict: true,
-            deprecationErrors: true,
-        }
+const client = new MongoClient(uri, {
+    serverApi: {
+        version: ServerApiVersion.v1,
+        strict: true,
+        deprecationErrors: true,
     }
-);
+});
 
 async function run() {
-  try {
-    // Connect the client to the server (optional starting in v4.7)
-    await client.connect();
+    try {
+        // Connect the client to the server (optional starting in v4.7)
+        await client.connect();
 
-    // Send a ping to confirm a successful connection
-    await client.db("admin").command({ ping: 1 });
-    console.log("Pinged your deployment. You successfully connected to MongoDB!");
-  } finally {
-    // Ensures that the client will close when you finish/error
-    await client.close();
-  }
+        // Send a ping to confirm a successful connection
+        await client.db("admin").command({ ping: 1 });
+        console.log("Pinged your deployment. You successfully connected to MongoDB!");
+
+        // Retrieve all documents from the dinner collection
+        const results = await client.db('marci').collection('dinner').find().toArray();
+        fs.writeFileSync('food_items.json', JSON.stringify(results, null, 2), 'utf-8');
+        // Log the results
+        console.log("All Documents:", results);
+    } finally {
+        // Ensures that the client will close when you finish/error
+        await client.close();
+    }
 }
+
 run().catch(console.dir);
