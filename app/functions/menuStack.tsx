@@ -33,7 +33,7 @@ export function menu() {
             <Grid.Col span={12} key={item.id}> {/* Use span={12} for full width */}
               <Box className="food-item">
                 <span>{item.label}</span>
-                <Button variant="default" onClick={addToCart}>
+                <Button variant="default" onClick={()=>addToCart(item.label)}>
                   Add
                 </Button>
               </Box>
