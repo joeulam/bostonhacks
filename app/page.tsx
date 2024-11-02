@@ -32,9 +32,9 @@ export default function Home() {
           </Tabs.Tab>
         </Tabs.List>
 
-        <Tabs.Panel value="West_Dining_hall">{Menu()}</Tabs.Panel>
+        <Tabs.Panel value="West_Dining_hall">Menu</Tabs.Panel>
         <Tabs.Panel value="Warren_Dining_hall">Menu</Tabs.Panel>
-        <Tabs.Panel value="Marci_Dining_hall">Menu</Tabs.Panel>
+        <Tabs.Panel value="Marci_Dining_hall">{Menu("marci")}</Tabs.Panel>
         <Tabs.Panel value="Fenway_Dining_hall">Menu</Tabs.Panel>
         <Tabs.Panel value="Calculate">{Calculate()}</Tabs.Panel>
       </Tabs>

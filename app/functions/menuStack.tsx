@@ -27,9 +27,9 @@ export function listOfItem() {
   return item;
 }
 
-export function Menu() {
+export function Menu(diningHall : string) {
   const [count, setCount] = useState<string[]>([]);
-  const items = require("../functions/food_items_marci.json");
+  const items = require("../functions/food_items_"+diningHall+".json");
 
   function addToCart(itemName: string) {
     notifications.show({
