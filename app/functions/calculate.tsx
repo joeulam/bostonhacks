@@ -35,7 +35,7 @@ export function Calculate({ cartItems, removeFromCart }: CalculateProps) {
   useEffect(() => {
     const initialCaloriesMap: { [key: string]: number } = {};
     cartItems.forEach(item => {
-      const foodItem = items.find(dataItem => dataItem.id.trim() === item.trim());
+      const foodItem = items.find((dataItem: { id: string; }) => dataItem.id.trim() === item.trim());
       if (foodItem) {
         initialCaloriesMap[item] = foodItem.Calories;
       }
@@ -60,7 +60,7 @@ export function Calculate({ cartItems, removeFromCart }: CalculateProps) {
   }
 
   function handleCardClick(itemName: string) {
-    const item = items.find((dataItem) => dataItem.id.trim() === itemName.trim());
+    const item = items.find((dataItem : any) => dataItem.id.trim() === itemName.trim());
     if (item) {
       setSelectedItem(item); // Set the selected item for modal
       setModalOpened(true); // Open the modal

@@ -21,6 +21,7 @@ export default function Home() {
     setCartItems((prevItems) => prevItems.filter((_, i) => i !== index));
   };
 
+  
   return (
     <MantineProvider defaultColorScheme="dark">
       <Tabs defaultValue="West_Dining_hall">
