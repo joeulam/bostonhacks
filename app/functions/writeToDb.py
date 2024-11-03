@@ -233,10 +233,23 @@ def get_databases_granby():
     print("Data inserted successfully.")
     return client
 
+def drop_all_databases():
+    # Provide the MongoDB Atlas URL to connect Python to MongoDB using pymongo
+    CONNECTION_STRING = "mongodb+srv://joeulam:0707@cluster0.sgvrk.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+    # Create a connection using MongoClient
+    client = MongoClient(CONNECTION_STRING)
 
+    # Get a list of all databases
+    dbs = ['granby','marciano','warren','west','fenway']
+    # Drop each database
+    for db in dbs:
+        client.drop_database(db)
+        print(f'Dropped database: {db}')
+    client.close()
 
 if __name__ == "__main__":
     # Get the database
+    drop_all_databases()
     get_databases_granby()
     get_databases_marciano()
     get_databases_warren()
