@@ -26,12 +26,6 @@ body {
     opacity: 0; /* Start as invisible */
 }
 
-.west{
-    background-image: url('../media/west.jpg');
-    opacity: .8; /* Show the image */
-    border-radius: 8px;
-}
-
 /* Set the overlay */
 .tab-panel.fenway::before {
     background-image: url('../media/fenway.jpg');
