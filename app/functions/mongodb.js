@@ -1,4 +1,4 @@
-'use client'
+
 const { MongoClient, ServerApiVersion } = require("mongodb");
 
 // Replace the placeholder with your Atlas connection string
@@ -14,7 +14,7 @@ const client = new MongoClient(uri, {
     }
 });
 
-export default async function run() {
+async function run() {
     try {
         // Connect the client to the server (optional starting in v4.7)
         await client.connect();
