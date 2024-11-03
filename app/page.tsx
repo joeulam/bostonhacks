@@ -45,31 +45,32 @@ export default function Home() {
             <Tabs.Tab value="Calculate" leftSection={<IconCalculator />}>Calculate</Tabs.Tab>
           </Tabs.List>
 
-          <Tabs.Panel className="west" value="West_Dining_hall">
-              <div className="food-items-container ">
-                  <Menu diningHall="west" addToCart={addToCart} />
-              </div>
+          <Tabs.Panel className={`tab-panel west`} value="West_Dining_hall">
+            <div className="food-items-container">
+                <Menu diningHall="west" addToCart={addToCart} />
+            </div>
           </Tabs.Panel>
-          <Tabs.Panel className="warren" value="Warren_Dining_hall">
+          <Tabs.Panel className={`tab-panel warren`} value="Warren_Dining_hall">
               <div className="food-items-container">
                   <Menu diningHall="warren" addToCart={addToCart} />
               </div>
           </Tabs.Panel>
-          <Tabs.Panel value="Marci_Dining_hall">
+          <Tabs.Panel className={`tab-panel marci`} value="Marci_Dining_hall">
               <div className="food-items-container">
                   <Menu diningHall="marci" addToCart={addToCart} />
               </div>
           </Tabs.Panel>
-          <Tabs.Panel className="fenway" value="Fenway_Dining_hall">
+          <Tabs.Panel className={`tab-panel fenway`} value="Fenway_Dining_hall">
               <div className="food-items-container">
                   <Menu diningHall="fenway" addToCart={addToCart} />
               </div>
           </Tabs.Panel>
-          <Tabs.Panel value="Granby's_Dining_hall">
+          <Tabs.Panel className={`tab-panel granby`} value="Granby's_Dining_hall">
               <div className="food-items-container">
                   <Menu diningHall="granby" addToCart={addToCart} />
               </div>
           </Tabs.Panel>
+
           
           <Tabs.Panel value="Calculate">
             <Calculate cartItems={cartItems} removeFromCart={removeFromCart} />
