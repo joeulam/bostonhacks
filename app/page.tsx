@@ -9,8 +9,8 @@ import "./styles.css";
 import { Calculate } from "./functions/calculate";
 import { IconCalculator } from "@tabler/icons-react";
 import React, { useEffect, useState } from "react";
-import fetchData from '../app/pages/api/mongodb'; // Adjust the path as necessary
-import Script from "next/script";
+import run from './functions/mongodb'; // Adjust the path as necessary
+
 
 export default function Home() {
   const [cartItems, setCartItems] = useState<string[]>([]); // State to manage cart items
@@ -22,11 +22,10 @@ export default function Home() {
   const removeFromCart = (index : number) => {
     setCartItems((prevItems) => prevItems.filter((_, i) => i !== index));
   };
-  
+
+
   return (
     <MantineProvider defaultColorScheme="dark">
-      <Script src="../app/pages/api/mongodb.js"
-              strategy="beforeInteractive"/>
       <Tabs defaultValue="West_Dining_hall">
         <Tabs.List>
           <Tabs.Tab value="West_Dining_hall" leftSection={<IconChefHat />}>
