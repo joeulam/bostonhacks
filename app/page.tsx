@@ -3,12 +3,13 @@ import { MantineProvider } from "@mantine/core";
 import { IconChefHat } from "@tabler/icons-react";
 import { Tabs } from "@mantine/core";
 import "@mantine/core/styles.css";
-import { Menu } from "../app/functions/menuStack"; // Adjust the import if necessary
+import { Menu } from "../app/functions/menuStack"; 
 import "@mantine/notifications/styles.css";
 import "./styles.css"; // Make sure this imports your CSS
 import { Calculate } from "./functions/calculate";
 import { IconCalculator } from "@tabler/icons-react";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+
 
 export default function Home() {
   const [cartItems, setCartItems] = useState<string[]>([]); // State to manage cart items
