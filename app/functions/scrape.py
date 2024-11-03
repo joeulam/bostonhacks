@@ -22,7 +22,7 @@ def get_items(location):
         soup = BeautifulSoup(page.content, 'html.parser')
 
         # Prepare a dictionary to hold food items for all meal types
-        food_info = {}
+        food_info = []
 
         # Iterate through meal times you want to check
         meal_times = ['breakfast', 'lunch', 'dinner']
@@ -30,7 +30,6 @@ def get_items(location):
             food = soup.find('li', id=f'{today}-{meal_time}')
             if food is not None:
                 food_title = food.find_all('h3', class_='nutrition-title')
-                food_info[meal_time] = []
 
                 for item in food_title:
                     # Separates food section into lists: one for nutrient labels, and the other for amounts of each nutrient
@@ -45,12 +44,11 @@ def get_items(location):
                             value = amount.get_text().replace("g", "").replace("m", "").strip()
                             food_dict[label] = float(value)
                         
-                        food_info[meal_time].append(food_dict)
+                        food_info.append(food_dict)
             else:
                 print(f"No food items found on {today}'s {meal_time} schedule at {location}.")
 
-        # Save to JSON file
-        save_to_json(food_info)
+        print("Success!  " + location + "'s food items have been received!")
         return food_info
                 
 def get_fenway():
@@ -70,12 +68,12 @@ def get_fenway():
             json_data = json.loads(json_string)  # Load the JSON data
 
             # Prepare a dictionary to hold food items for all meal types
-            food_info = {}
+            food_info = []
 
             # Iterate through meal times you want to check
-            meal_times = ['BREAKFAST', 'LUNCH', 'DINNER']
             specific_date = today + 'T00:00:00'  # Change this to the desired date
-
+            meal_times = ['BREAKFAST', 'LUNCH', 'DINNER']
+            
             for meal_type in meal_times:
                 # Use list comprehension to filter by date, then meal type
                 filtered_items = [
@@ -85,8 +83,6 @@ def get_fenway():
                     for course in day_part['courses']
                     for item in course['menuItems']
                 ]
-            
-                food_info[meal_type.lower()] = []
 
                 # Process the filtered items
                 for item in filtered_items:
@@ -121,10 +117,11 @@ def get_fenway():
                     except ValueError as e:
                         print(f"Error converting nutrients to int: {e}. Skipping item: {food_dict['id']}")
                         continue  # Skip this item if there's an error
-
                     # Check if all required values are present and not None or empty
                     if all(value is not None and value != '' for value in food_dict.values()):
-                        food_info[meal_type.lower()].append(food_dict)
+                        food_info.append(food_dict)
+            
+            print("Success!  Fenway's food items have been received!")
             return food_info
 
         except json.JSONDecodeError as e:
@@ -133,7 +130,7 @@ def get_fenway():
         print("JSON data not found in the script string.")
 
 
-def save_to_json(data, filename='food_items.json'):
+def save_to_json(data, filename='marciano_items.json'):
     """Function to save data to a JSON file."""
     with open(filename, 'w') as json_file:
         json.dump(data, json_file, indent=4)
@@ -144,5 +141,5 @@ def save_to_json(data, filename='food_items.json'):
 # get_items(location) 
 # locations: warren, granby, fenway, west, marciano
 
-food_info = get_items('west')
+food_info = get_items('marciano')
 save_to_json(food_info)
