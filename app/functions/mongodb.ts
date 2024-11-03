@@ -1,8 +1,8 @@
-import { MongoClient, ServerApiVersion } from "mongodb";
+const { MongoClient, ServerApiVersion } = require("mongodb");
 
 // Replace the placeholder with your Atlas connection string
 const uri = "mongodb+srv://joeulam:0707@cluster0.sgvrk.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
-import fs from "fs";
+const fs = require("fs");
 
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
 const client = new MongoClient(uri, {
@@ -23,8 +23,8 @@ async function run() {
 
         // Retrieve all documents from the dinner collection
         const marci = await client.db('marci').collection('dinner').find().toArray();
-        const warren = await client.db('marci').collection('dinner').find().toArray();
-        const west = await client.db('marci').collection('dinner').find().toArray();
+        const warren = await client.db('warren').collection('dinner').find().toArray();
+        const west = await client.db('west').collection('dinner').find().toArray();
         fs.writeFileSync('food_items_marci.json', JSON.stringify(marci, null, 2), 'utf-8');
         fs.writeFileSync('food_items_warren.json', JSON.stringify(warren, null, 2), 'utf-8');
         fs.writeFileSync('food_items_west.json', JSON.stringify(west, null, 2), 'utf-8');
