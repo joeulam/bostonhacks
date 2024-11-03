@@ -18,33 +18,14 @@ BUFT (Boston University Food Tracker) is a Next.js web application that allows s
 - **Icons**: Tabler Icons
 - **CSS**: Custom styling and Mantine default theme
 
-## File Structure
-BUFT/
-│
-├── app/
-│   ├── functions/
-│   │   ├── json/
-│   │   │   ├── food_items_marci.json
-│   │   │   ├── food_items_granby.json
-│   │   │   ├── food_items_fenway.json
-│   │   │   ├── food_items_warren.json
-│   │   │   └── food_items_west.json
-│   │   ├── menuStack.tsx
-│   │   └── writeToDb.py
-│   ├── Home.tsx
-│   └── mongodb.tsx
-│
-├── public/
-│   └── media/
-│       └── fenway.jpg
-│
-├── styles/
-│   └── styles.css
-│
-├── components/
-│   └── Calculate.tsx
-│
-├── README.md
-└── package.json
+## FAQ
+- **What do `mongodb.tsx` and `writeToDb.py` do?**
+  - These are two helper files that assist in updating the MongoDB data. The MongoDB instance runs on Google Colab and is updated every 8 hours. 
+  - **`writeToDb.py`**: This script writes the data from MongoDB into JSON files that can be parsed by the application.
+  - **`mongodb.tsx`**: This TypeScript file handles the connection to MongoDB and ensures data retrieval for the Next.js app.
 
- 
+- **What do `calculate.tsx`, `menuStack.tsx`, and `page.tsx` do?**
+  - These are the main three files that control the logic of the program.
+  - **`page.tsx`**: This file is the main entry point that displays both calculation data and `menuStack` data using tabs.
+  - **`calculate.tsx`**: This file manages the calculation logic and allows for data processing within the application.
+  - **`menuStack.tsx`**: This file displays menu options in a stack format, providing a user interface for viewing the menu data.
