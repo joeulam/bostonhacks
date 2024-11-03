@@ -28,6 +28,8 @@ body {
 
 .west{
     background-image: url('../media/west.jpg');
+    opacity: .8; /* Show the image */
+
 }
 
 /* Set the overlay */
