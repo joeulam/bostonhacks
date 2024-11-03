@@ -21,7 +21,10 @@ export default function Home() {
     setCartItems((prevItems) => prevItems.filter((_, i) => i !== index));
   };
 
-  
+  fetch('/api/server.js')
+  .then(response => response.json())
+  .then(data => console.log(data))
+  .catch(err => console.error('Error:', err));
   return (
     <MantineProvider defaultColorScheme="dark">
       <Tabs defaultValue="West_Dining_hall">
