@@ -41,17 +41,29 @@ export default function Home() {
           <Tabs.Tab value="Fenway_Dining_hall" leftSection={<IconChefHat />}>
             Fenway
           </Tabs.Tab>
+          <Tabs.Tab value="Granby's_Dining_hall" leftSection={<IconChefHat />}>
+            Granby's
+          </Tabs.Tab>
           <Tabs.Tab value="Calculate" leftSection={<IconCalculator />}>
             Calculate
           </Tabs.Tab>
         </Tabs.List>
 
-        <Tabs.Panel value="West_Dining_hall">Menu</Tabs.Panel>
-        <Tabs.Panel value="Warren_Dining_hall">Menu</Tabs.Panel>
+        <Tabs.Panel value="West_Dining_hall">
+          <Menu diningHall="west" addToCart={addToCart} /> {/* Pass addToCart to Menu */}
+        </Tabs.Panel>
+        <Tabs.Panel value="Warren_Dining_hall">
+          <Menu diningHall="warren" addToCart={addToCart} /> {/* Pass addToCart to Menu */}
+        </Tabs.Panel>
         <Tabs.Panel value="Marci_Dining_hall">
           <Menu diningHall="marci" addToCart={addToCart} /> {/* Pass addToCart to Menu */}
         </Tabs.Panel>
-        <Tabs.Panel value="Fenway_Dining_hall">Menu</Tabs.Panel>
+        <Tabs.Panel value="Fenway_Dining_hall">
+          <Menu diningHall="fenway" addToCart={addToCart} /> {/* Pass addToCart to Menu */}
+        </Tabs.Panel>
+        <Tabs.Panel value="Granby's_Dining_hall">
+          <Menu diningHall="granby" addToCart={addToCart} /> {/* Pass addToCart to Menu */}
+        </Tabs.Panel>
         <Tabs.Panel value="Calculate">
           <Calculate cartItems={cartItems} removeFromCart={removeFromCart} />
         </Tabs.Panel>
