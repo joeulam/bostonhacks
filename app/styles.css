@@ -91,6 +91,22 @@ body {
 .Landing_page{
     color: #000;
     font-size: 32px;
+    font-weight: normal;
+    font-family: 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-align: center;
+    line-height: 60px;
+    background-image: url(https://www.bu.edu/files/2024/09/22-1623-AERIAL-248-feat.jpg)
+}
+
+.Copyright {
+    color: #ffffff;
+    font-size: 16px;
+    font-family: var(--mantine-font-family);
+    font-weight: normal;
+    font-style: italic;
+    position: absolute;
+    top: 10px;
+    right: 50px
 }
 
 .mantine-Tabs-root {
