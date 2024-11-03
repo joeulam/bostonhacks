@@ -1,10 +1,8 @@
 import requests
 from bs4 import BeautifulSoup
 from datetime import date
-import json
-import json
-from pymongo import MongoClient
-from scrape import get_items
+from pymongo.mongo_client import MongoClient
+from pymongo.server_api import ServerApi
 import requests
 from bs4 import BeautifulSoup
 from datetime import date
@@ -223,6 +221,9 @@ def get_databases_granby():
     db = client['granby']
     food_info = get_items('granby')
     collection = db['dinner']
+    if food_info is None or (isinstance(food_info, list) and not food_info):
+        print("No data to insert. Exiting function.")
+        return None  # Do not return the client if there's no data
     food_info = json.dumps(food_info)
     food_info = json.loads(food_info)
     if isinstance(food_info, list):
