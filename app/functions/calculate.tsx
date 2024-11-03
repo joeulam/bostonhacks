@@ -24,7 +24,7 @@ interface FoodItem {
 }
 
 // Use require to load the JSON data
-const items: FoodItem[] = require('../functions/food_items_marci.json');
+const items = require(`../functions/json/food_items_marci.json`); 
 
 export function Calculate({ cartItems, removeFromCart }: CalculateProps) {
   const [caloriesMap, setCaloriesMap] = useState<{ [key: string]: number }>({}); // State for calories
