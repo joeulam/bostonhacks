@@ -45,12 +45,12 @@ export default function Home() {
             <Tabs.Tab value="Calculate" leftSection={<IconCalculator />}>Calculate</Tabs.Tab>
           </Tabs.List>
 
-          <Tabs.Panel value="West_Dining_hall">
-              <div className="food-items-container">
+          <Tabs.Panel className="west" value="West_Dining_hall">
+              <div className="food-items-container ">
                   <Menu diningHall="west" addToCart={addToCart} />
               </div>
           </Tabs.Panel>
-          <Tabs.Panel value="Warren_Dining_hall">
+          <Tabs.Panel className="warren" value="Warren_Dining_hall">
               <div className="food-items-container">
                   <Menu diningHall="warren" addToCart={addToCart} />
               </div>
@@ -60,7 +60,7 @@ export default function Home() {
                   <Menu diningHall="marci" addToCart={addToCart} />
               </div>
           </Tabs.Panel>
-          <Tabs.Panel value="Fenway_Dining_hall">
+          <Tabs.Panel className="fenway" value="Fenway_Dining_hall">
               <div className="food-items-container">
                   <Menu diningHall="fenway" addToCart={addToCart} />
               </div>

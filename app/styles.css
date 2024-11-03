@@ -1,11 +1,22 @@
 body {
     background-color: transparent; 
-    background-image: url('../media/fenway.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     overflow-y: hidden;
 }
+
+
+.fenway{
+    background-image: url('../media/fenway.jpg');
+}
+.west{
+    background-image: url('../media/west.jpg');
+}
+.warren{
+    background-image: url('../media/warren.jpg');
+}
+
 
 .tabs{
     background-color: white;
