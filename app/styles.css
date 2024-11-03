@@ -18,8 +18,14 @@ body {
 }
 
 
+
 .tabs{
     background-color: white;
+}
+
+.Landing_page{
+    color: #000;
+    font-size: 32px;
 }
 
 .mantine-Tabs-root {

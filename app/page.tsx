@@ -1,6 +1,7 @@
 "use client";
 import { MantineProvider } from "@mantine/core";
 import { IconChefHat } from "@tabler/icons-react";
+import { IconBuildingSkyscraper } from '@tabler/icons-react';
 import { Tabs } from "@mantine/core";
 import "@mantine/core/styles.css";
 import { Menu } from "../app/functions/menuStack"; // Adjust the import if necessary
@@ -35,8 +36,9 @@ export default function Home() {
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
       }}>
-        <Tabs defaultValue="West_Dining_hall" style={{ backgroundColor: 'rgba(0, 0, 0, 0.7)', padding: '10px' }}>
+        <Tabs defaultValue="Landing_page" style={{ backgroundColor: 'rgba(0, 0, 0, 0.7)', padding: '10px' }}>
           <Tabs.List>
+            <Tabs.Tab value="Landing_page" leftSection={<IconBuildingSkyscraper />}>Homepage</Tabs.Tab>
             <Tabs.Tab value="West_Dining_hall" leftSection={<IconChefHat />}>West</Tabs.Tab>
             <Tabs.Tab value="Warren_Dining_hall" leftSection={<IconChefHat />}>Warren</Tabs.Tab>
             <Tabs.Tab value="Marci_Dining_hall" leftSection={<IconChefHat />}>Marci</Tabs.Tab>
@@ -45,6 +47,13 @@ export default function Home() {
             <Tabs.Tab value="Calculate" leftSection={<IconCalculator />}>Calculate</Tabs.Tab>
           </Tabs.List>
 
+          <Tabs.Panel className="Landing_page" value="Landing_page">
+              <div className="food-items-container">
+                <h1>Welcome to BU dining hall nutrition tracker</h1>
+                <h2>Choose a dining hall and press add to add item to cart</h2>
+                <h2>Checkout allows you to remove items and calculate the total macros of the food you selected</h2>
+              </div>
+          </Tabs.Panel>
           <Tabs.Panel className="west" value="West_Dining_hall">
               <div className="food-items-container ">
                   <Menu diningHall="west" addToCart={addToCart} />
