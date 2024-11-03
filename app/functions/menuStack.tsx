@@ -1,44 +1,28 @@
 import { Stack, Button, Grid, Box } from "@mantine/core";
-import "@mantine/notifications/styles.css";
 import { Notifications, notifications } from "@mantine/notifications";
 import { MantineProvider } from "@mantine/core";
-
-import "../styles.css"; // Import your styles
-import React, { useState } from "react";
-
-const item: string[] = [];
+import React from "react";
 
 interface foodItems {
   id: string; // Converted to string
-  calories: number; // Changed to lowercase
-  total_fat: number; // Renamed with underscore
-  saturated_fat: number; // Renamed with underscore
-  trans_fat: number; // Renamed with underscore
-  cholesterol: number; // Renamed with lowercase
-  sodium: number; // Renamed with lowercase
-  total_carbohydrate: number; // Renamed with underscore
-  dietary_fiber: number; // Renamed with underscore
-  sugars: number; // Renamed with lowercase
-  protein: number; // Renamed with lowercase
+  calories: number;
+  total_fat: number;
+  saturated_fat: number;
+  trans_fat: number;
+  cholesterol: number;
+  sodium: number;
+  total_carbohydrate: number;
+  dietary_fiber: number;
+  sugars: number;
+  protein: number;
 }
 
-export function listOfItem() {
-  return item;
+interface MenuProps {
+  addToCart: (itemName: string) => void; // Define the prop type
 }
 
-export function Menu(diningHall : string) {
-  const [count, setCount] = useState<string[]>([]);
-  const items = require("../functions/food_items_"+diningHall+".json");
-
-  function addToCart(itemName: string) {
-    notifications.show({
-      title: "Added " + itemName + " to cart",
-      message: "",
-    });
-    // Append the new item to the existing array in state
-    setCount((prev) => [...prev, itemName]); // Add new string to the array
-    item.push(itemName);
-  }
+export function Menu({ addToCart }: MenuProps) {
+  const items = require("../functions/food_items_marci.json"); // Adjust the path based on your structure
 
   return (
     <MantineProvider defaultColorScheme="dark">
@@ -48,8 +32,6 @@ export function Menu(diningHall : string) {
           <Grid>
             {items.map((item: foodItems) => (
               <Grid.Col span={12} key={item.id}>
-                {" "}
-                {/* Use span={12} for full width */}
                 <Box className="food-item">
                   <span>{item.id}</span>
                   <Button variant="default" onClick={() => addToCart(item.id)}>
