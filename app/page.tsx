@@ -3,13 +3,12 @@ import { MantineProvider } from "@mantine/core";
 import { IconChefHat } from "@tabler/icons-react";
 import { Tabs } from "@mantine/core";
 import "@mantine/core/styles.css";
-import { Menu } from "../app/functions/menuStack"; // Adjust the import if necessary
+import { Menu } from "../app/functions/menuStack"; 
 import "@mantine/notifications/styles.css";
 import "./styles.css";
 import { Calculate } from "./functions/calculate";
 import { IconCalculator } from "@tabler/icons-react";
 import React, { useEffect, useState } from "react";
-import run from './functions/mongodb'; // Adjust the path as necessary
 
 
 export default function Home() {
