@@ -1,10 +1,8 @@
 import requests
 from bs4 import BeautifulSoup
 from datetime import date
-import json
-import json
-from pymongo import MongoClient
-from scrape import get_items
+from pymongo.mongo_client import MongoClient
+from pymongo.server_api import ServerApi
 import requests
 from bs4 import BeautifulSoup
 from datetime import date
@@ -32,7 +30,7 @@ def get_items(location):
         food_info = []
 
         # Iterate through meal times you want to check
-        meal_times = ['breakfast', 'lunch', 'dinner']
+        meal_times = ['breakfast', 'lunch', 'brunch', 'dinner']
         for meal_time in meal_times:
             food = soup.find('li', id=f'{today}-{meal_time}')
             if food is not None:
@@ -79,7 +77,7 @@ def get_fenway():
 
             # Iterate through meal times you want to check
             specific_date = today + 'T00:00:00'  # Change this to the desired date
-            meal_times = ['BREAKFAST', 'LUNCH', 'DINNER']
+            meal_times = ['BREAKFAST', 'LUNCH', 'BRUNCH', 'DINNER']
             
             for meal_type in meal_times:
                 # Use list comprehension to filter by date, then meal type
@@ -223,6 +221,9 @@ def get_databases_granby():
     db = client['granby']
     food_info = get_items('granby')
     collection = db['dinner']
+    if food_info is None or (isinstance(food_info, list) and not food_info):
+        print("No data to insert. Exiting function.")
+        return None  # Do not return the client if there's no data
     food_info = json.dumps(food_info)
     food_info = json.loads(food_info)
     if isinstance(food_info, list):

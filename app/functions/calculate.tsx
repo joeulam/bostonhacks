@@ -5,10 +5,9 @@ import '../styles.css'; // Import your CSS file
 
 interface CalculateProps {
   cartItems: string[]; // Cart items as props
-  removeFromCart: (itemName: number) => void; // Remove function as prop
+  removeFromCart: (itemIndex: number) => void; // Remove function as prop
 }
 
-// Define the type for the food items based on your JSON structure
 interface FoodItem {
   id: string;
   Calories: number;
@@ -24,18 +23,19 @@ interface FoodItem {
 }
 
 // Use require to load the JSON data
-const items = require(`../functions/json/food_items_marci.json`); 
+const items = require(`../functions/json/food_items_marci.json`);
 
 export function Calculate({ cartItems, removeFromCart }: CalculateProps) {
-  const [caloriesMap, setCaloriesMap] = useState<{ [key: string]: number }>({}); // State for calories
+  const [caloriesMap, setCaloriesMap] = useState<{ [key: string]: number }>({});
   const [selectedItem, setSelectedItem] = useState<FoodItem | null>(null);
   const [modalOpened, setModalOpened] = useState(false); 
+  const [nutritionInfo, setNutritionInfo] = useState<{ totalCalories: number; totalFat: number; totalSaturatedFat: number; totalTransFat: number; totalCholesterol: number; totalSodium: number; totalCarbohydrates: number; totalDietaryFiber: number; totalSugars: number; totalProtein: number; } | null>(null);
+  const [infoModalOpened, setInfoModalOpened] = useState(false);
 
-  // Initialize caloriesMap when cartItems change
   useEffect(() => {
     const initialCaloriesMap: { [key: string]: number } = {};
     cartItems.forEach(item => {
-      const foodItem = items.find((dataItem: typeof foodItem) => dataItem.id.trim() === item.trim());
+      const foodItem = items.find((dataItem: { id: string; }) => dataItem.id.trim() === item.trim());
       if (foodItem) {
         initialCaloriesMap[item] = foodItem.Calories; // Store actual calorie values
       }
@@ -60,16 +60,52 @@ export function Calculate({ cartItems, removeFromCart }: CalculateProps) {
   }
 
   function handleCardClick(itemName: string) {
-    const item = items.find((dataItem) => dataItem.id.trim() === itemName.trim());
+    const item = items.find((dataItem : any) => dataItem.id.trim() === itemName.trim());
     if (item) {
-      setSelectedItem(item); // Set the selected item for modal
-      setModalOpened(true); // Open the modal
+      setSelectedItem(item);
+      setModalOpened(true);
+    } else {
+      console.error(`Item not found: ${itemName}`);
     }
   }
 
+  const handleCalculate = () => {
+    const totals = {
+      totalCalories: 0,
+      totalFat: 0,
+      totalSaturatedFat: 0,
+      totalTransFat: 0,
+      totalCholesterol: 0,
+      totalSodium: 0,
+      totalCarbohydrates: 0,
+      totalDietaryFiber: 0,
+      totalSugars: 0,
+      totalProtein: 0,
+    };
+
+    cartItems.forEach(item => {
+      const foodItem = allItems.find(dataItem => dataItem.id.trim() === item.trim());
+      if (foodItem) {
+        totals.totalCalories += foodItem.Calories;
+        totals.totalFat += foodItem['Total Fat'];
+        totals.totalSaturatedFat += foodItem['Saturated Fat'];
+        totals.totalTransFat += foodItem['Trans Fat'];
+        totals.totalCholesterol += foodItem.Cholesterol;
+        totals.totalSodium += foodItem.Sodium;
+        totals.totalCarbohydrates += foodItem['Total Carbohydrate'];
+        totals.totalDietaryFiber += foodItem['Dietary Fiber'];
+        totals.totalSugars += foodItem.Sugars;
+        totals.totalProtein += foodItem.Protein;
+      }
+    });
+
+    // Set nutrition info to display in the modal
+    setNutritionInfo(totals);
+    setInfoModalOpened(true);
+  };
+
   return (
     <Stack
-      h={300}
       bg="var(--mantine-color-body)"
       align="stretch"
       justify="center"
@@ -81,7 +117,17 @@ export function Calculate({ cartItems, removeFromCart }: CalculateProps) {
         </Grid>
       </div>
 
-      {/* Custom modal as a div */}
+      {/* Button container for centering */}
+      <div className="button-container">
+        <Button
+          onClick={handleCalculate}
+          variant="outline"
+          className="calculate-button"
+        >
+          Calculate
+        </Button>
+      </div>
+      
       {modalOpened && selectedItem && (
         <div className="custom-modal">
           <Card className="item-card large-card" style={{ maxHeight: '35vh', overflow: 'auto' }}>
@@ -112,6 +158,69 @@ export function Calculate({ cartItems, removeFromCart }: CalculateProps) {
           </Card>
         </div>
       )}
+
+    {infoModalOpened && nutritionInfo && (
+      <div className="calc-modal">
+        <Card className="item-card calc-card" style={{ maxHeight: '40vh', overflow: 'auto', padding: '20px' }}>
+          <Text className="large-item-title">Total Nutritional Values</Text>
+          <div style={{ display: 'flex', justifyContent: 'center', padding: '20px' }}>
+            <Table striped className="calc-table" style={{ margin: '0 auto', width: '60%' }}>
+              <thead>
+                <tr>
+                  <th>Nutritional Facts</th>
+                  <th>Amount</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Total Calories</td>
+                  <td>{nutritionInfo.totalCalories} kcal</td>
+                </tr>
+                <tr>
+                  <td>Total Fat</td>
+                  <td>{nutritionInfo.totalFat} g</td>
+                </tr>
+                <tr>
+                  <td>Saturated Fat</td>
+                  <td>{nutritionInfo.totalSaturatedFat} g</td>
+                </tr>
+                <tr>
+                  <td>Trans Fat</td>
+                  <td>{nutritionInfo.totalTransFat} g</td>
+                </tr>
+                <tr>
+                  <td>Cholesterol</td>
+                  <td>{nutritionInfo.totalCholesterol} mg</td>
+                </tr>
+                <tr>
+                  <td>Sodium</td>
+                  <td>{nutritionInfo.totalSodium} mg</td>
+                </tr>
+                <tr>
+                  <td>Total Carbohydrates</td>
+                  <td>{nutritionInfo.totalCarbohydrates} g</td>
+                </tr>
+                <tr>
+                  <td>Dietary Fiber</td>
+                  <td>{nutritionInfo.totalDietaryFiber} g</td>
+                </tr>
+                <tr>
+                  <td>Sugars</td>
+                  <td>{nutritionInfo.totalSugars} g</td>
+                </tr>
+                <tr>
+                  <td>Protein</td>
+                  <td>{nutritionInfo.totalProtein} g</td>
+                </tr>
+              </tbody>
+            </Table>
+          </div>
+          <div className="button-container">
+            <Button className="close-button" onClick={() => setInfoModalOpened(false)}>Close</Button>
+          </div>
+        </Card>
+      </div>
+    )}
     </Stack>
   );
 }

@@ -1,5 +1,9 @@
-body{
-    overflow-x: hidden;
+body {
+    background-color: transparent; /* Fallback color */
+    background-image: url('../media/fenway.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .mantine-Tabs-tab {
@@ -30,7 +34,7 @@ body{
 /* Calculate.css */
 .item-card {
     margin: 12px auto 2px;
-    transition: transform 0.2s;
+    transition: transform 0.3s;
     padding: 16px;
     border-radius: 8px;
     border: 1px solid #eaeaea;
@@ -38,10 +42,6 @@ body{
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     max-width: 97%;
     color: black;
-}
-
-.item-card:hover {
-    transform: scale(1.05);
 }
 
 .item-title {
@@ -72,12 +72,12 @@ body{
 }
 
 .item-container {
-    min-height: 80vh;
+    height: 75vh;
     width: 99%;
     margin: 0 auto;
-    margin-top: 45vh;
+    margin-top: 1vh;
     overflow-y: auto;
-    border: 1px solid #ffffff;
+    border: 1px solid white;
     padding: 10px;
     display: flex;
     flex-direction: column;
@@ -104,10 +104,6 @@ body{
     transition: transform 0.2s; 
     font-size: 0.6rem; 
     border-radius: 4px; 
-}
-
-.large-card:hover {
-    transform: scale(2.8);
 }
 
 table {
@@ -140,12 +136,15 @@ th {
     color: white; 
     transition: background-color 0.2s; 
     align-items: center;
+    margin-bottom: 5px;
     max-width: 40%;
     max-height: 20px;
 }
 
 .close-button:hover {
     background-color: #0056b3; 
+    transform: scale(1.1); 
+    transition: transform 0.5;
 }
 
 .button-container {
@@ -156,7 +155,67 @@ th {
 
 .large-item-title {
     font-weight: 600;
-    font-size: 1.2rem;
-    margin-bottom: 8px;
+    font-size: 1.1rem;
+    margin-bottom: 6px;
     text-align: center; 
+}
+
+.calculate-button:hover {
+    background-color: #0056b3; 
+    transform: scale(1.1);
+    transition: transform 0.5s;
+}
+
+.calc-table-container {
+    display: flex; /* Use flexbox for layout */
+    justify-content: center; /* Center the table horizontally */
+    overflow-x: auto; /* Allow horizontal scrolling if the table is too wide */
+    margin-top: 20px; /* Spacing above the table */
+    max-height: 40%; /* Reduce maximum height */
+}
+
+.calc-table {
+    max-height: 30vh; /* Set a maximum height for the table */
+    max-width: 60%; /* Prevent table from exceeding container width */
+    border-collapse: collapse; /* Remove gaps between cells */
+    font-size: 0.35rem; /* Adjust font size for readability */
+}
+
+.calc-table th, .calc-table td {
+    border: 1px solid #000; /* Border around cells */
+    padding: 1.5px; /* Reduce padding for cell content */
+    text-align: left; /* Align text to the left */
+}
+
+.calc-table th {
+    background-color: #f0f0f0; /* Light background for header */
+    font-weight: bold; /* Bold text for headers */
+}
+
+.calc-table tr:hover {
+    background-color: #f9f9f9; /* Light highlight on hover */
+}
+
+.calc-modal {
+    position: fixed; 
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); 
+    display: flex; 
+    justify-content: center; /* Center the modal horizontally */
+    align-items: center; /* Center the modal vertically */
+    z-index: 1000; 
+    overflow: hidden; 
+}
+
+.calc-card {
+    height: 50%; /* Maintain height */
+    width: 30vw; /* Maintain width */
+    transform: scale(2.2); /* Maintain scale */
+    transition: transform 0.2s; 
+    font-size: 0.6rem; 
+    border-radius: 4px; 
+    background-color: white; /* Add a white background */
 }

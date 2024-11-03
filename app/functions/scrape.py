@@ -25,7 +25,7 @@ def get_items(location):
         food_info = []
 
         # Iterate through meal times you want to check
-        meal_times = ['breakfast', 'lunch', 'dinner']
+        meal_times = ['breakfast', 'lunch', 'brunch', 'dinner']
         for meal_time in meal_times:
             food = soup.find('li', id=f'{today}-{meal_time}')
             if food is not None:
@@ -72,7 +72,7 @@ def get_fenway():
 
             # Iterate through meal times you want to check
             specific_date = today + 'T00:00:00'  # Change this to the desired date
-            meal_times = ['BREAKFAST', 'LUNCH', 'DINNER']
+            meal_times = ['BREAKFAST', 'LUNCH', 'BRUNCH', 'DINNER']
             
             for meal_type in meal_times:
                 # Use list comprehension to filter by date, then meal type
