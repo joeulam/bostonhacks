@@ -22,16 +22,8 @@ interface FoodItem {
   Protein: number;
 }
 
-// Load food items from JSON files
-const itemSources = [
-  require(`../functions/json/food_items_marci.json`),
-  require(`../functions/json/food_items_granby.json`),
-  require(`../functions/json/food_items_fenway.json`),
-  require(`../functions/json/food_items_warren.json`),
-  require(`../functions/json/food_items_west.json`),
-];
-
-const allItems = itemSources.flat();
+// Use require to load the JSON data
+const items = require(`../functions/json/food_items_marci.json`);
 
 export function Calculate({ cartItems, removeFromCart }: CalculateProps) {
   const [caloriesMap, setCaloriesMap] = useState<{ [key: string]: number }>({});
@@ -43,7 +35,7 @@ export function Calculate({ cartItems, removeFromCart }: CalculateProps) {
   useEffect(() => {
     const initialCaloriesMap: { [key: string]: number } = {};
     cartItems.forEach(item => {
-      const foodItem = allItems.find((dataItem) => dataItem.id.trim() === item.trim());
+      const foodItem = items.find((dataItem: { id: string; }) => dataItem.id.trim() === item.trim());
       if (foodItem) {
         initialCaloriesMap[item] = foodItem.Calories; // Store actual calorie values
       }
@@ -68,7 +60,7 @@ export function Calculate({ cartItems, removeFromCart }: CalculateProps) {
   }
 
   function handleCardClick(itemName: string) {
-    const item = allItems.find((dataItem) => dataItem.id.trim() === itemName.trim());
+    const item = items.find((dataItem : any) => dataItem.id.trim() === itemName.trim());
     if (item) {
       setSelectedItem(item);
       setModalOpened(true);
