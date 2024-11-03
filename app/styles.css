@@ -1,15 +1,114 @@
 body {
-    background-color: transparent; /* Fallback color */
-    background-image: url('../media/fenway.jpg');
+    background-color: transparent; 
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    overflow-y: hidden;
+}
+
+/* Base class for each tab's panel */
+.tab-panel {
+    position: relative; /* Set position for stacking */
+    overflow: hidden; /* Prevent overflow from the pseudo-element */
+}
+
+/* Pseudo-element for background image */
+.tab-panel::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    z-index: -1; /* Send the pseudo-element behind the content */
+    transition: background-color 0.5s ease, opacity 0.5s ease; /* Transition for the overlay */
+    opacity: 0; /* Start as invisible */
+}
+
+.west{
+    background-image: url('../media/west.jpg');
+}
+
+/* Set the overlay */
+.tab-panel.fenway::before {
+    background-image: url('../media/fenway.jpg');
+    opacity: 1; /* Show the image */
+}
+
+.tab-panel.marci::before {
+    background-image: url('../media/marci.jpg');
+    opacity: 1; /* Show the image */
+}
+
+.tab-panel.west::before {
+    background-image: url('../media/west.jpg');
+    opacity: 1; /* Show the image */
+}
+
+.tab-panel.warren::before {
+    background-image: url('../media/warren.jpg');
+    opacity: 1; /* Show the image */
+}
+
+.tab-panel.granby::before {
+    background-image: url('../media/granby.jpg');
+    opacity: 1; /* Show the image */
+}
+
+/* Additional classes for other dining halls can follow the same pattern */
+
+/* Tab styles */
+.tabs {
+    background-color: white;
+}
+
+.mantine-Tabs-root {
+    background-color: rgba(255, 0, 0, 0.7); /* Adjust as needed */
+}
+
+.mantine-Tabs-tab {
+    background-color: transparent; /* Default background for tabs */
+    color: white; /* Default text color */
+    padding: 20px 20px; 
+    margin: 0 5px; 
+    transition: background-color 0.5s; 
+    font-weight: bold;
+}
+
+.mantine-Tabs-tab:hover {
+    background-color: #555; 
+    color: #ffffff;
+}
+
+/* Additional classes for other dining halls can follow the same pattern */
+
+
+.tabs{
+    background-color: white;
+}
+
+.Landing_page{
+    color: #000;
+    font-size: 32px;
+}
+
+.mantine-Tabs-root {
+    background-color: rgba(255, 0, 0, 0.7); /* Adjust as needed */
+}
+
+/* Override the tab colors */
+.mantine-Tabs-tab {
+    background-color: transparent; /* Default background for tabs */
+    color: white; /* Default text color */
 }
 
 .mantine-Tabs-tab {
     padding: 20px 20px; 
     margin: 0 5px; 
     transition: background-color 0.5s; 
+    color: white;
+    font-weight: bold;
 }
 
 .mantine-Tabs-tab:hover {
@@ -18,17 +117,18 @@ body {
 }
 
 .food-item {
+    color: black; /* Keep the text color opaque */
     margin: 10px auto 1px; 
     padding: 1rem;
     border-radius: 12px;
-    border: 1px solid #ccc;
-    background-color: #f9f9f9;
+    border: 1px solid rgba(204, 204, 204, 0.3); /* Semi-transparent border */
+    background-color: rgba(249, 249, 249, 0.2); /* Semi-transparent background */
     display: flex;
     align-items: center;
     justify-content: space-between;
-    color: black;
     width: calc(100% - 40px); 
     max-width: 99vw;
+    font-weight: bold;
 }
 
 /* Calculate.css */
@@ -75,8 +175,9 @@ body {
     height: 75vh;
     width: 99%;
     margin: 0 auto;
-    margin-top: 1vh;
+    margin-top: 3vh;
     overflow-y: auto;
+    border-radius: 4;
     border: 1px solid white;
     padding: 10px;
     display: flex;
@@ -218,4 +319,24 @@ th {
     font-size: 0.6rem; 
     border-radius: 4px; 
     background-color: white; /* Add a white background */
+}
+
+.food-items-container {
+    background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent background */
+    border: 1px solid rgba(204, 204, 204, 0.3); /* Semi-transparent border */
+    border-radius: 12px; /* Rounded corners */
+    padding: 20px; /* Add some padding */
+    margin: 10px; /* Margin around the container */
+    height: calc(100vh - 105px); /* Adjust height based on other components */
+    overflow-y: auto; /* Allow scrolling if the content overflows */
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+    width: 100%; /* Full width of the parent */
+    box-sizing: border-box; /* Include padding and border in width calculation */
+}
+
+.full-height {
+    margin-bottom: 15vh; /* Make the stack fill the viewport height */
+    display: flex; /* Use flexbox to control alignment */
+    flex-direction: column; /* Align children vertically */
 }
