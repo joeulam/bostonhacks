@@ -114,10 +114,11 @@ export function Calculate({ cartItems, removeFromCart }: CalculateProps) {
 
   return (
     <Stack
-      bg="var(--mantine-color-body)"
-      align="stretch"
-      justify="center"
-      gap="md"
+    className="full-height" // Add this class
+    bg="transparent"
+    align="stretch"
+    justify="center"
+    gap="md"
     >
       <div className="item-container">
         <Grid>

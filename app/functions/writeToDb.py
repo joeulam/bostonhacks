@@ -182,7 +182,6 @@ def get_databases_warren():
     db = client['warren']
     food_info = get_items('warren')
     collection = db['dinner']
-    collection = db['dinner']
     food_info = json.dumps(food_info)
     food_info = json.loads(food_info)
     if isinstance(food_info, list):
