@@ -54,6 +54,7 @@ export default function Home() {
                 <h2>Checkout allows you to remove items and calculate the total macros of the food you selected</h2>
               </div>
           </Tabs.Panel>
+          
           <Tabs.Panel className="west" value="West_Dining_hall">
               <div className="food-items-container ">
                   <Menu diningHall="west" addToCart={addToCart} />
