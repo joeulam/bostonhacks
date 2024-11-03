@@ -1,32 +1,22 @@
-import requests
-from bs4 import BeautifulSoup
-from datetime import date
-import json
 import json
 from pymongo import MongoClient
-from functions import scrape
 
-def get_databases():
+def get_database():
     # Provide the MongoDB Atlas URL to connect Python to MongoDB using pymongo
     CONNECTION_STRING = "mongodb+srv://joeulam:0707@cluster0.sgvrk.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
     
     # Create a connection using MongoClient
     client = MongoClient(CONNECTION_STRING)
-
-    # Create the database for our example
-    for location in ['fenway', 'west', 'warren', 'marciano', 'granby']:
-        db = client[location]
     
-    return client
+    # Create the database for our example
+    return client['marci']
 
 def insert_json_data(db):
     """
     Reads data from a JSON file and inserts it into a MongoDB collection.
     """
-    data = []
-    for location in ['fenway', 'west', 'warren', 'marciano', 'granby']:
-        food_info = scrape.get_items(location)
-        data.append = food_info
+    with open('food_items_marci.json') as file:
+        data = json.load(file)  # Load the JSON data
     
     # Specify the collection to insert the data into
     collection = db['dinner']
@@ -41,7 +31,7 @@ def insert_json_data(db):
 
 if __name__ == "__main__":
     # Get the database
-    dbname = get_databases()
+    dbname = get_database()
     
     # Insert JSON data into the database
     insert_json_data(dbname)
