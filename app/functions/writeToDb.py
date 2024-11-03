@@ -138,7 +138,7 @@ def get_fenway():
 
 def get_databases_fenway():
     # Provide the MongoDB Atlas URL to connect Python to MongoDB using pymongo
-    CONNECTION_STRING = "mongodb+srv://joeulam:0707@cluster0.sgvrk.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+    CONNECTION_STRING = "mongodb+srv://joeulam:"+MONGO_KEY+"@cluster0.sgvrk.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
     # Create a connection using MongoClient
     client = MongoClient(CONNECTION_STRING)
     # Create the database for our example
@@ -157,7 +157,7 @@ def get_databases_fenway():
 
 def get_databases_west():
     # Provide the MongoDB Atlas URL to connect Python to MongoDB using pymongo
-    CONNECTION_STRING = "mongodb+srv://joeulam:0707@cluster0.sgvrk.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+    CONNECTION_STRING = "mongodb+srv://joeulam:"+MONGO_KEY+"@cluster0.sgvrk.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
     # Create a connection using MongoClient
     client = MongoClient(CONNECTION_STRING)
     # Create the database for our example
@@ -175,7 +175,7 @@ def get_databases_west():
 
 def get_databases_warren():
     # Provide the MongoDB Atlas URL to connect Python to MongoDB using pymongo
-    CONNECTION_STRING = "mongodb+srv://joeulam:0707@cluster0.sgvrk.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+    CONNECTION_STRING = "mongodb+srv://joeulam:"+MONGO_KEY+"@cluster0.sgvrk.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
     # Create a connection using MongoClient
     client = MongoClient(CONNECTION_STRING)
     # Create the database for our example
@@ -194,7 +194,7 @@ def get_databases_warren():
     
 def get_databases_marciano():
     # Provide the MongoDB Atlas URL to connect Python to MongoDB using pymongo
-    CONNECTION_STRING = "mongodb+srv://joeulam:0707@cluster0.sgvrk.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+    CONNECTION_STRING = "mongodb+srv://joeulam:"+MONGO_KEY+"@cluster0.sgvrk.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
     # Create a connection using MongoClient
     client = MongoClient(CONNECTION_STRING)
     # Create the database for our example
@@ -213,7 +213,7 @@ def get_databases_marciano():
 
 def get_databases_granby():
     # Provide the MongoDB Atlas URL to connect Python to MongoDB using pymongo
-    CONNECTION_STRING = "mongodb+srv://joeulam:0707@cluster0.sgvrk.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+    CONNECTION_STRING = "mongodb+srv://joeulam:"+MONGO_KEY+"@cluster0.sgvrk.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
     # Create a connection using MongoClient
     client = MongoClient(CONNECTION_STRING)
     # Create the database for our example
@@ -235,7 +235,7 @@ def get_databases_granby():
 
 def drop_all_databases():
     # Provide the MongoDB Atlas URL to connect Python to MongoDB using pymongo
-    CONNECTION_STRING = "mongodb+srv://joeulam:0707@cluster0.sgvrk.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+    CONNECTION_STRING = "mongodb+srv://joeulam:"+MONGO_KEY+"@cluster0.sgvrk.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
     # Create a connection using MongoClient
     client = MongoClient(CONNECTION_STRING)
 
