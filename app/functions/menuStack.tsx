@@ -1,8 +1,6 @@
 import { Stack, Button, Grid, Box } from "@mantine/core";
-import "@mantine/notifications/styles.css";
 import { Notifications, notifications } from "@mantine/notifications";
 import { MantineProvider } from "@mantine/core";
-
 import "../styles.css"; // Import your styles
 import React, { useState } from "react";
 
@@ -26,18 +24,17 @@ export function listOfItem() {
   return item;
 }
 
-export function Menu(diningHall : string) {
+export function Menu({ diningHall, addToCart }) {
   const [count, setCount] = useState<string[]>([]);
-  const items = require("../functions/food_items_"+diningHall+".json");
+  const items = require(`../functions/food_items_${diningHall}.json`); // Dynamic import based on diningHall
 
-  function addToCart(itemName: string) {
+  function handleAddToCart(itemName: string) {
     notifications.show({
       title: "Added " + itemName + " to cart",
       message: "",
     });
-    // Append the new item to the existing array in state
     setCount((prev) => [...prev, itemName]); // Add new string to the array
-    item.push(itemName);
+    addToCart(itemName); // Call the addToCart function passed from Home
   }
 
   return (
@@ -48,11 +45,9 @@ export function Menu(diningHall : string) {
           <Grid>
             {items.map((item: foodItems) => (
               <Grid.Col span={12} key={item.id}>
-                {" "}
-                {/* Use span={12} for full width */}
                 <Box className="food-item">
                   <span>{item.id}</span>
-                  <Button variant="default" onClick={() => addToCart(item.id)}>
+                  <Button variant="default" onClick={() => handleAddToCart(item.id)}>
                     Add
                   </Button>
                 </Box>
