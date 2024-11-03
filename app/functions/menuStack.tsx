@@ -26,7 +26,7 @@ export function listOfItem() {
 
 export function Menu({ diningHall, addToCart } : any) {
   const [count, setCount] = useState<string[]>([]);
-  const items = require(`../functions/food_items_${diningHall}.json`); 
+  const items = require(`../functions/json/food_items_${diningHall}.json`); 
 
   function handleAddToCart(itemName: string) {
     notifications.show({

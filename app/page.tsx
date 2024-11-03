@@ -26,16 +26,16 @@ export default function Home() {
       <Tabs defaultValue="West_Dining_hall">
         <Tabs.List>
           <Tabs.Tab value="West_Dining_hall" leftSection={<IconChefHat />}>
-            West Dining Hall
+            West
           </Tabs.Tab>
           <Tabs.Tab value="Warren_Dining_hall" leftSection={<IconChefHat />}>
-            Warren Dining Hall
+            Warren
           </Tabs.Tab>
           <Tabs.Tab value="Marci_Dining_hall" leftSection={<IconChefHat />}>
-            Marci Dining Hall
+            Marci
           </Tabs.Tab>
           <Tabs.Tab value="Fenway_Dining_hall" leftSection={<IconChefHat />}>
-            Fenway Dining Hall
+            Fenway
           </Tabs.Tab>
           <Tabs.Tab value="Calculate" leftSection={<IconCalculator />}>
             Calculate
