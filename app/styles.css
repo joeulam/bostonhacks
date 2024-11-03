@@ -1,5 +1,5 @@
 body {
-    background-color: transparent; 
+    background-color: #990000;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -26,34 +26,41 @@ body {
     opacity: 0; /* Start as invisible */
 }
 
+.west{
+    background-image: url('../media/west.jpg');
+    opacity: .8; /* Show the image */
+    border-radius: 8px;
+}
 
 /* Set the overlay */
 .tab-panel.fenway::before {
     background-image: url('../media/fenway.jpg');
     opacity: 1; /* Show the image */
+    border-radius: 8px;
 }
-.tab-panel.fenway::before {
-    background-image: url('../media/west.jpg');
-    opacity: 1; /* Show the image */
-}
+
 .tab-panel.marci::before {
     background-image: url('../media/marci.jpg');
     opacity: 1; /* Show the image */
+    border-radius: 8px;
 }
 
 .tab-panel.west::before {
-    background-image: url('../media/west.jpg');
+    background-image: url('../media/nick.jpg');
     opacity: 1; /* Show the image */
+    border-radius: 8px;
 }
 
 .tab-panel.warren::before {
     background-image: url('../media/warren.jpg');
     opacity: 1; /* Show the image */
+    border-radius: 8px;
 }
 
 .tab-panel.granby::before {
     background-image: url('../media/granby.jpg');
     opacity: 1; /* Show the image */
+    border-radius: 8px;
 }
 
 /* Additional classes for other dining halls can follow the same pattern */
@@ -121,14 +128,20 @@ body {
     margin: 10px auto 1px; 
     padding: 1rem;
     border-radius: 12px;
-    border: 1px solid rgba(204, 204, 204, 0.3); /* Semi-transparent border */
-    background-color: rgba(249, 249, 249, 0.2); /* Semi-transparent background */
+    border: 1px solid rgba(204, 204, 204, 0.2); /* Semi-transparent border */
+    background-color: rgba(249, 249, 249, 0.4); /* Semi-transparent background */
     display: flex;
     align-items: center;
     justify-content: space-between;
     width: calc(100% - 40px); 
     max-width: 99vw;
     font-weight: bold;
+    font-size: large;
+}
+
+.food-item:hover{
+    transform: scale(1.01); /* Slightly increase size */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Add a subtle shadow */
 }
 
 /* Calculate.css */
@@ -174,15 +187,16 @@ body {
 .item-container {
     height: 75vh;
     width: 99%;
-    margin: 0 auto;
-    margin-top: 3vh;
+    margin: 3vh auto 0;
     overflow-y: auto;
-    border-radius: 4;
-    border: 1px solid white;
+    border-radius: 8px;
+    border: 1px solid #d3d9e8; /* Softer, muted border */
+    background-color: #e8edf5; /* Dimmer, soft blue-gray background */
     padding: 10px;
     display: flex;
     flex-direction: column;
 }
+
 
 .custom-modal {
     position: fixed; 
@@ -322,16 +336,16 @@ th {
 }
 
 .food-items-container {
-    background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent background */
+    background-color: rgba(255, 255, 255, 0.3); /* Semi-transparent background */
     border: 1px solid rgba(204, 204, 204, 0.3); /* Semi-transparent border */
     border-radius: 12px; /* Rounded corners */
     padding: 20px; /* Add some padding */
-    margin: 10px; /* Margin around the container */
+    margin: 10px auto; /* Center horizontally with auto margin */
     height: calc(100vh - 105px); /* Adjust height based on other components */
     overflow-y: auto; /* Allow scrolling if the content overflows */
     display: flex;
     flex-direction: column; /* Stack children vertically */
-    width: 100%; /* Full width of the parent */
+    width: 98%; /* Slightly reduce width */
     box-sizing: border-box; /* Include padding and border in width calculation */
 }
 
