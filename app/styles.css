@@ -1,5 +1,9 @@
-body{
-    overflow-x: hidden;
+body {
+    background-color: transparent; /* Fallback color */
+    background-image: url('../media/fenway.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .mantine-Tabs-tab {
@@ -73,7 +77,7 @@ body{
     margin: 0 auto;
     margin-top: 1vh;
     overflow-y: auto;
-    border: 1px solid #ffffff;
+    border: 1px solid white;
     padding: 10px;
     display: flex;
     flex-direction: column;
