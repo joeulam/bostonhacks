@@ -6,17 +6,78 @@ body {
     overflow-y: hidden;
 }
 
+/* Base class for each tab's panel */
+.tab-panel {
+    position: relative; /* Set position for stacking */
+    overflow: hidden; /* Prevent overflow from the pseudo-element */
+}
 
-.fenway{
+/* Pseudo-element for background image */
+.tab-panel::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    z-index: -1; /* Send the pseudo-element behind the content */
+    transition: background-color 0.5s ease, opacity 0.5s ease; /* Transition for the overlay */
+    opacity: 0; /* Start as invisible */
+}
+
+/* Set the overlay */
+.tab-panel.fenway::before {
     background-image: url('../media/fenway.jpg');
-}
-.west{
-    background-image: url('../media/west.jpg');
-}
-.warren{
-    background-image: url('../media/warren.jpg');
+    opacity: 1; /* Show the image */
 }
 
+.tab-panel.marci::before {
+    background-image: url('../media/marci.jpg');
+    opacity: 1; /* Show the image */
+}
+
+.tab-panel.west::before {
+    background-image: url('../media/west.jpg');
+    opacity: 1; /* Show the image */
+}
+
+.tab-panel.warren::before {
+    background-image: url('../media/warren.jpg');
+    opacity: 1; /* Show the image */
+}
+
+.tab-panel.granby::before {
+    background-image: url('../media/granby.jpg');
+    opacity: 1; /* Show the image */
+}
+
+/* Additional classes for other dining halls can follow the same pattern */
+
+/* Tab styles */
+.tabs {
+    background-color: white;
+}
+
+.mantine-Tabs-root {
+    background-color: rgba(255, 0, 0, 0.7); /* Adjust as needed */
+}
+
+.mantine-Tabs-tab {
+    background-color: transparent; /* Default background for tabs */
+    color: white; /* Default text color */
+    padding: 20px 20px; 
+    margin: 0 5px; 
+    transition: background-color 0.5s; 
+    font-weight: bold;
+}
+
+.mantine-Tabs-tab:hover {
+    background-color: #555; 
+    color: #ffffff;
+}
+
+/* Additional classes for other dining halls can follow the same pattern */
 
 
 .tabs{
@@ -56,8 +117,8 @@ body {
     margin: 10px auto 1px; 
     padding: 1rem;
     border-radius: 12px;
-    border: 1px solid rgba(204, 204, 204, 0.6); /* Semi-transparent border */
-    background-color: rgba(249, 249, 249, 0.5); /* Semi-transparent background */
+    border: 1px solid rgba(204, 204, 204, 0.3); /* Semi-transparent border */
+    background-color: rgba(249, 249, 249, 0.2); /* Semi-transparent background */
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -262,11 +323,12 @@ th {
     border-radius: 12px; /* Rounded corners */
     padding: 20px; /* Add some padding */
     margin: 10px; /* Margin around the container */
-    max-width: 100%; /* Ensure it doesn't exceed the parent width */
     height: calc(100vh - 105px); /* Adjust height based on other components */
     overflow-y: auto; /* Allow scrolling if the content overflows */
     display: flex;
     flex-direction: column; /* Stack children vertically */
+    width: 100%; /* Full width of the parent */
+    box-sizing: border-box; /* Include padding and border in width calculation */
 }
 
 .full-height {
