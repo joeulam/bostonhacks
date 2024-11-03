@@ -55,7 +55,7 @@ export default function Home() {
               </div>
           </Tabs.Panel>
           
-          <Tabs.Panel className="west" value="West_Dining_hall">
+          <Tabs.Panel className={`tab-panel west`} value="West_Dining_hall">
               <div className="food-items-container ">
                   <Menu diningHall="west" addToCart={addToCart} />
               </div>

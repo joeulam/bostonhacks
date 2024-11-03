@@ -26,18 +26,16 @@ body {
     opacity: 0; /* Start as invisible */
 }
 
-.west{
-    background-image: url('../media/west.jpg');
-    opacity: .8; /* Show the image */
-
-}
 
 /* Set the overlay */
 .tab-panel.fenway::before {
     background-image: url('../media/fenway.jpg');
     opacity: 1; /* Show the image */
 }
-
+.tab-panel.fenway::before {
+    background-image: url('../media/west.jpg');
+    opacity: 1; /* Show the image */
+}
 .tab-panel.marci::before {
     background-image: url('../media/marci.jpg');
     opacity: 1; /* Show the image */
