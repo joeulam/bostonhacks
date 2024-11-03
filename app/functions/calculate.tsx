@@ -9,7 +9,7 @@ interface CalculateProps {
 }
 
 export function Calculate({ cartItems, removeFromCart }: CalculateProps) {
-    const [selectedItem, setSelectedItem] = useState(null); 
+    const [selectedItem, setSelectedItem] = useState<string | null>(null);
     const [modalOpened, setModalOpened] = useState(false); 
 
     function dynamicList() {
@@ -26,7 +26,7 @@ export function Calculate({ cartItems, removeFromCart }: CalculateProps) {
         ));
     }
 
-    function handleCardClick(item) {
+    function handleCardClick(item: string) {
         setSelectedItem(item); // Set the selected item for modal
         setModalOpened(true); // Open the modal
     }

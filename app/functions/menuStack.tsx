@@ -24,9 +24,9 @@ export function listOfItem() {
   return item;
 }
 
-export function Menu({ diningHall, addToCart }) {
+export function Menu({ diningHall, addToCart } : any) {
   const [count, setCount] = useState<string[]>([]);
-  const items = require(`../functions/food_items_${diningHall}.json`); // Dynamic import based on diningHall
+  const items = require(`../functions/food_items_${diningHall}.json`); 
 
   function handleAddToCart(itemName: string) {
     notifications.show({

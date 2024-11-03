@@ -11,13 +11,13 @@ import { IconCalculator } from "@tabler/icons-react";
 import React, { useState } from "react";
 
 export default function Home() {
-  const [cartItems, setCartItems] = useState([]); // State to manage cart items
+  const [cartItems, setCartItems] = useState<string[]>([]); // State to manage cart items
 
-  const addToCart = (item: any) => {
+  const addToCart = (item : string) => {
     setCartItems((prevItems) => [...prevItems, item]); // Function to add item to cart
   };
 
-  const removeFromCart = (index) => {
+  const removeFromCart = (index : number) => {
     setCartItems((prevItems) => prevItems.filter((_, i) => i !== index));
   };
 
