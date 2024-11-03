@@ -252,20 +252,6 @@
     "Protein": 14
   },
   {
-    "_id": "6726dbaa7442efa6786da6be",
-    "id": "",
-    "Calories": 185,
-    "Total Fat": 6,
-    "Saturated Fat": 3,
-    "Trans Fat": 0,
-    "Cholesterol": 7,
-    "Sodium": 195,
-    "Total Carbohydrate": 32,
-    "Dietary Fiber": 1,
-    "Sugars": 18,
-    "Protein": 2
-  },
-  {
     "_id": "6726dbaa7442efa6786da6bf",
     "id": "Chocolate Chip Coffee Cake",
     "Calories": 185,
@@ -683,20 +669,6 @@
     "Total Carbohydrate": 9,
     "Dietary Fiber": 1,
     "Sugars": 6,
-    "Protein": 1
-  },
-  {
-    "_id": "6726dbaa7442efa6786da6dd",
-    "id": "",
-    "Calories": 95,
-    "Total Fat": 4,
-    "Saturated Fat": 2,
-    "Trans Fat": 0,
-    "Cholesterol": 4,
-    "Sodium": 70,
-    "Total Carbohydrate": 14,
-    "Dietary Fiber": 0,
-    "Sugars": 8,
     "Protein": 1
   },
   {
@@ -1397,20 +1369,6 @@
     "Total Carbohydrate": 4,
     "Dietary Fiber": 1,
     "Sugars": 3,
-    "Protein": 1
-  },
-  {
-    "_id": "6726dbaa7442efa6786da710",
-    "id": "",
-    "Calories": 95,
-    "Total Fat": 4,
-    "Saturated Fat": 2,
-    "Trans Fat": 0,
-    "Cholesterol": 4,
-    "Sodium": 70,
-    "Total Carbohydrate": 14,
-    "Dietary Fiber": 0,
-    "Sugars": 8,
     "Protein": 1
   },
   {
