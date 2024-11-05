@@ -53,7 +53,6 @@ export default function Home() {
                 <h2>Choose a dining hall and press "add" to cart.</h2>
                 <h2>View contents of food by clicking on individual item in "Calculate."</h2>
                 <h2>After selecting food, you can calculate the total nutrition info.</h2>
-                <h4 className="Copyright">Made by Joey Lam, James Liu, and Daniel George.</h4>
               </div>
           </Tabs.Panel>
           <Tabs.Panel className={`tab-panel west`} value="West_Dining_hall">
